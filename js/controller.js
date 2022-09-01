@@ -64,6 +64,7 @@ let controller = (function(budgetCtrl, uiCtrl) {
 
     return {
         init: function () {
+            uiCtrl.displayMonth();
             setupEventListener();
             uiCtrl.updateBudget({
                 budget: 0,

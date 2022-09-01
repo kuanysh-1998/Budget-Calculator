@@ -11,7 +11,9 @@ let viewController = (function() {
         incomeLabel: '#income-label',
         expensesLabel: '#expenses-label',
         expensesPercentLabel: '#expense-percent-label',
-        budgetTable: '#budget-table'
+        budgetTable: '#budget-table',
+        monthLabel: '#month',
+        yearLabel: '#year'
     }
 
     function getInput() {
@@ -150,6 +152,27 @@ let viewController = (function() {
         })
     }
 
+    function displayMonth () {
+        let now, year, month;
+
+        now = new Date();
+        year = now.getFullYear();
+        month = now.getMonth();
+
+        monthArr = [
+            'Январь', 'Февраль', 'Март',
+            'Апрель', 'Май', 'Июнь', 'Июль', 
+            'Август', 'Сентябрь', 'Октябрь',
+            'Ноябрь', 'Декабрь'
+        ];
+
+        month = monthArr[month];
+        document.querySelector(DOMstrings.monthLabel).innerText = month;
+        document.querySelector(DOMstrings.yearLabel).innerText = year;
+
+
+    }
+
     return  {
         clearFields: clearFields,
         getInput: getInput,
@@ -157,6 +180,7 @@ let viewController = (function() {
         updateBudget: updateBudget,
         deleteItem: deleteItem,
         updateItemsPercentages: updateItemsPercentages,
+        displayMonth: displayMonth,
         getDOMstrings: function() {
             return DOMstrings
         }
